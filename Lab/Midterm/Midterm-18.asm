@@ -1,3 +1,5 @@
+# Midterm Exercise 18
+
 .data
 tmp: .space 32				# save current word that we have just read
 input: .space 100			# save user input
@@ -49,7 +51,6 @@ exit:	li	$v0, 10			# syscall to terminate
 	syscall	
 #################################################################################################
 #	checkNonAlpha method: if current character is non-alphabet --> we got a word 		#
-# 	minmap, steady go
 #################################################################################################
 checkNonAlpha:
 	add	$t4, $s0, $a0		# address of A[i] in $t4
