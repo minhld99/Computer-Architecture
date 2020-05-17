@@ -30,6 +30,11 @@ main:
     	li  	$v0, 1     		# print result
     	syscall
     	j	readEnter		# enter to continue
+error:
+	li  	$v0, 4      		# print error string
+    	la  	$a0, toolarge		# pointer to error message in memory
+    	syscall
+    	j 	readEnter
 exit:
 	li  	$v0, 10     		# exit
     	syscall
@@ -55,11 +60,6 @@ split:
 	j	split
 # After this step, array = [5, 4, 2]
 # Array size = $s2 = 3
-error:
-	li  	$v0, 4      		# print error string
-    	la  	$a0, toolarge		# pointer to error message in memory
-    	syscall
-    	j 	exit
 ############################# Nested loop ###############################
 # result = 0								#
 # For i = 0 -> array_size:						#
