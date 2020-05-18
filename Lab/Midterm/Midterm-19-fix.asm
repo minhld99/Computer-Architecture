@@ -1,3 +1,5 @@
+# Midterm Ex19 FIX
+
 .data
 input: .space 100 
 array: .word	0:10			# split number into individual digit and store in array
