@@ -2,45 +2,45 @@
 
 .data
 #-----------Pointer-----------
-CharPtr: 	.word  0 	# Bien con tro, tro toi kieu asciiz
-BytePtr: 	.word  0 	# Bien con tro, tro toi kieu Byte
-WordPtr: 	.word  0 	# Bien con tro, tro toi mang kieu Word
-CharPtr1: 	.word  0
-CharPtr2: 	.word  0
-ArrayPtr: 	.word  0 	# Bien con tro 2D array, tro toi mang kieu Word
+CharPtr: .word  0 	# Bien con tro, tro toi kieu asciiz
+BytePtr: .word  0 	# Bien con tro, tro toi kieu Byte
+WordPtr: .word  0 	# Bien con tro, tro toi mang kieu Word
+CharPtr1: .word  0
+CharPtr2: .word  0
+ArrayPtr: .word  0 	# Bien con tro 2D array, tro toi mang kieu Word
 #-----------Menu String-----------
-option_menu: 	.asciiz "1. Cap phat bo nho\n2. Lay gia tri word/byte cua bien con tro\n3. Lay dia chi bien con tro\n4. Copy 2 xau con tro ki tu\n5. Tinh toan luong bo nho da cap phat co cac bien dong\n6. Ham malloc2 cap phat mang 2 chieu\n7. GetArray[i][j] và SetArray[i][j]\n\nELSE: Exit"
-malloc_menu: 	.asciiz "1. CharPtr\n2. BytePtr\n3. WordPtr\n4. Return main menu\n\nELSE: Exit"
-getset_menu: 	.asciiz "1. GetArray[i][j]\n2. SetArray[i][j]\n3. Return main menu\n\nELSE: Exit"
+option_menu: .asciiz "1. Cap phat bo nho\n2. Lay gia tri word/byte cua bien con tro\n3. Lay dia chi bien con tro\n4. Copy 2 xau con tro ki tu\n5. Tinh toan luong bo nho da cap phat co cac bien dong\n6. Ham malloc2 cap phat mang 2 chieu\n7. GetArray[i][j] và SetArray[i][j]\n\nELSE: Exit"
+malloc_menu: .asciiz "1. CharPtr\n2. BytePtr\n3. WordPtr\n4. Return main menu\n\nELSE: Exit"
+getset_menu: .asciiz "1. GetArray[i][j]\n2. SetArray[i][j]\n3. Return main menu\n\nELSE: Exit"
 #-----------Dump Messages-----------
 malloc_success: .asciiz "\nMalloc succesfully. "
-charPtr_Add: 	.asciiz "\nCharPtr address: "
-bytePtr_Add: 	.asciiz "\nBytePtr address: "
-wordPtr_Add: 	.asciiz "\nWordPtr address: "
-arrayPtr_Add:	.asciiz "\nArrayPtr address: "
-charPtr_Val: 	.asciiz "\nCharPtr value: "
-bytePtr_Val: 	.asciiz "\nBytePtr value: "
-wordPtr_Val: 	.asciiz "\nWordPtr value: "
-arrow: 		.asciiz " --> "
-tab: 		.asciiz "\t"
-new_line: 	.asciiz "\n"
-dash_line: 	.asciiz "\n---------------------------------------\n"
-amount:		.asciiz "\nNhap so phan tu can cap phat: "
-CharPtr1_Val: 	.asciiz "\nCharPtr1: "
-oldCharPtr2_Val:.asciiz "CharPtr2 (before): "
-newCharPtr2_Val:.asciiz "\nCharPtr2 (after): "
-input_message: 	.asciiz "Nhap 1 string bat ky de thuc hien copy: "
-used_total: 	.asciiz "\nTong luong bo nho da su dung (tinh ca lam tron de sua loi): "
-allocated_total:.asciiz "\nTong luong bo nho da cap phat: "
-byte: 		.asciiz " byte(s)"
-unallocated: 	.asciiz "\nMang 2 chieu chua duoc cap phat!!!"
-input_row: 	.asciiz "\nNhap so hang: "
-input_col: 	.asciiz "\nNhap so cot: "
-input_i: 	.asciiz "\nNhap vi tri hang: "
-input_j: 	.asciiz "\nNhap vi tri cot: "
-assign_val: 	.asciiz "\nNhap gia tri can gan: "
-out_of_bound: 	.asciiz "\nIndex out of bound."
-string_copy: 	.space  100
+charPtr_Add: .asciiz "\nCharPtr address: "
+bytePtr_Add: .asciiz "\nBytePtr address: "
+wordPtr_Add: .asciiz "\nWordPtr address: "
+arrayPtr_Add: .asciiz "\nArrayPtr address: "
+charPtr_Val: .asciiz "\nCharPtr value: "
+bytePtr_Val: .asciiz "\nBytePtr value: "
+wordPtr_Val: .asciiz "\nWordPtr value: "
+arrow: .asciiz " --> "
+tab: .asciiz "\t"
+new_line: .asciiz "\n"
+dash_line: .asciiz "\n---------------------------------------\n"
+amount:	.asciiz "\nNhap so phan tu can cap phat: "
+CharPtr1_Val: .asciiz "\nCharPtr1: "
+oldCharPtr2_Val: .asciiz "CharPtr2 (before): "
+newCharPtr2_Val: .asciiz "\nCharPtr2 (after): "
+input_message: .asciiz "Nhap 1 string bat ky de thuc hien copy: "
+used_total: .asciiz "\nTong luong bo nho da su dung (tinh ca lam tron de sua loi): "
+allocated_total: .asciiz "\nTong luong bo nho da cap phat: "
+byte: .asciiz " byte(s)"
+unallocated: .asciiz "\nMang 2 chieu chua duoc cap phat!!!"
+input_row: .asciiz "\nNhap so hang: "
+input_col: .asciiz "\nNhap so cot: "
+input_i: .asciiz "\nNhap vi tri hang: "
+input_j: .asciiz "\nNhap vi tri cot: "
+assign_val: .asciiz "\nNhap gia tri can gan: "
+out_of_bound: .asciiz "\nIndex out of bound."
+string_copy: .space  100
 
 .kdata
 # Bien chua dia chi dau tien cua vung nho con trong
@@ -98,7 +98,7 @@ end:	li 	$v0, 10
 	syscall
 
 #-----------------------
-#  Cap phat cho bien con tro CharPtr, moi phan tu 1 byte
+#  Cap phat cho bien con tro CharPtr, gom 3 phan tu, moi phan tu 1 byte
 #-----------------------
 case1.1:
 	la	$a0, amount		# In ra thong bao "Nhap so phan tu can cap phat: "
@@ -111,7 +111,7 @@ case1.1:
 	jal 	malloc
 	j 	menu
 #-----------------------
-#  Cap phat cho bien con tro BytePtr, moi phan tu 1 byte
+#  Cap phat cho bien con tro BytePtr, gom 6 phan tu, moi phan tu 1 byte
 #-----------------------
 case1.2:
 	la	$a0, amount		# In ra thong bao "Nhap so phan tu can cap phat: "
@@ -124,7 +124,7 @@ case1.2:
 	jal  	malloc 
 	j	menu
 #-----------------------
-#  Cap phat cho bien con tro WordPtr, moi phan tu 4 byte
+#  Cap phat cho bien con tro WordPtr, gom 5 phan tu, moi phan tu 4 byte
 #-----------------------
 case1.3:
 	la	$a0, amount		# In ra thong bao "Nhap so phan tu can cap phat: "
